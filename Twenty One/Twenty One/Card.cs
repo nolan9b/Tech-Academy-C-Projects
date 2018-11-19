@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Twenty_One
 {
-    public class Card
+    public struct Card
     {
-        // Constructor Method
- 
-        
         // Properties
         public Suit Suit { get; set; }
         public Face Face { get; set; }
-        // Methods
+
+        public override string ToString()
+        {
+            return string.Format("{0} of {1}", Face, Suit);
+        }
     }
 
     public enum Suit
@@ -38,7 +39,8 @@ namespace Twenty_One
         Ten,
         Jack,
         Queen,
-        King
+        King,
+        Ace
     }
 
 }

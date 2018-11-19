@@ -9,24 +9,31 @@ namespace Twenty_One
     class Program
     {
         static void Main(string[] args)
-        {
+        {           
+            Console.WriteLine("Welcome to the Grand West Casino. Lets start by telling me your name.");
+            string playerName = Console.ReadLine();
+            Console.WriteLine("What is your buy in today?");
+            int bank = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Hello, {0}. Would you like to join a game of 21 right now?", playerName);
+            string answer = Console.ReadLine().ToLower();
 
-            Deck deck = new Deck();
-
-            deck.Shuffle();
-
-            foreach (Card card in deck.Cards)
+            if (answer == "yes" || answer == "y" || answer == "yeah" || answer == "ya")
             {
-                Console.WriteLine(card.Face + " of " + card.Suit);
+                Player player = new Player(playerName, bank);
+                Game game = new TwentyOneGame();
+                game += player;
+                player.isActivelyPlaying = true;
+
+                // Game Loop
+                while (player.isActivelyPlaying && player.Balance > 0)
+                {
+                    game.Play();
+                }
+                game -= player;
+                Console.WriteLine("Thank you for playing!");
             }
-
-            Console.WriteLine("Deck Size: " + deck.Cards.Count);
-            Console.ReadLine();
-
+            Console.WriteLine("Feel free to look around the casino.");
+            Console.Read();
         }
-
-
-
-
     }
 }
