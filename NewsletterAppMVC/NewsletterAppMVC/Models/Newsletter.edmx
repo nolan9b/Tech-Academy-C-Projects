@@ -13,7 +13,7 @@
           <Property Name="FirstName" Type="nchar" MaxLength="50" />
           <Property Name="LastName" Type="nchar" MaxLength="50" />
           <Property Name="EmailAddress" Type="nchar" MaxLength="100" />
-          <Property Name="SocialSecurityNumber" Type="nchar" MaxLength="15" />
+          <Property Name="Removed" Type="datetime" />
         </EntityType>
         <EntityContainer Name="NewsletterModelStoreContainer">
           <EntitySet Name="SignUps" EntityType="Self.SignUps" Schema="dbo" store:Type="Tables" />
@@ -30,7 +30,7 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="SocialSecurityNumber" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Removed" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="NewsletterEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SignUps" EntityType="Self.SignUp" />
@@ -44,11 +44,11 @@
           <EntitySetMapping Name="SignUps">
             <EntityTypeMapping TypeName="NewsletterModel.SignUp">
               <MappingFragment StoreEntitySet="SignUps">
+                <ScalarProperty Name="Removed" ColumnName="Removed" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="SocialSecurityNumber" ColumnName="SocialSecurityNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
