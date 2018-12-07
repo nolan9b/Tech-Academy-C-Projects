@@ -1,0 +1,29 @@
+﻿<div class="row no-gutters m-3">
+    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center no-gutters">
+            <h5 class="m-0">Item Database Menu</h5>
+        </div>
+        <div class="card-body no-gutters">
+            @using (Html.BeginForm("AddItem", "Home", FormMethod.Post))
+            {
+                <div class="row no-gutters">
+                    <button type="submit" class="btn btn-block btn-primary">Add Item</button>
+                </div>
+            }
+            <br/>
+            @using (Html.BeginForm("EditItem", "Home", FormMethod.Post))
+            {
+                <div class="row no-gutters">
+                    <button type="submit" class="btn btn-block btn-primary">Edit Item</button>
+                </div>
+            }
+            <br/>
+            @using (Html.BeginForm("ViewItems", "Home", FormMethod.Post))
+            {
+                <div class="row no-gutters">
+                    <button type="submit" class="btn btn-block btn-primary">View Items</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

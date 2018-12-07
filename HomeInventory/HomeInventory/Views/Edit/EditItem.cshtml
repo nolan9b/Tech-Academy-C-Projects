@@ -1,0 +1,27 @@
+﻿@using HomeInventory.Models
+@model InventoryItem
+
+<div class="row no-gutters m-3">
+    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center">
+            <h5 class="m-0">Edit Item</h5>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("EditItem", "Edit", FormMethod.Post))
+            {
+                <input name="id" value="@Model.Id" hidden />
+                <input name="name" value="@Model.Name" />
+                <input name="location" value="@Model.Location" />
+                <input name="quantity" value="@Model.Quantity" />
+                <button type="submit">Edit Item</button>
+            }
+            <br />
+            @using (Html.BeginForm("ReturnToMenu", "Edit", FormMethod.Post))
+            {
+                <button type="submit" class="btn btn-primary btn-block">
+                    Return to Menu
+                </button>
+            }
+        </div>
+    </div>
+</div>

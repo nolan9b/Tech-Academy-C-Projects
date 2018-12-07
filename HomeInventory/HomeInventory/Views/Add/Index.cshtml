@@ -1,0 +1,29 @@
+﻿<div class="row no-gutters m-3">
+    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center">
+            <h5 class="m-0">Add Inventory Item</h5>
+        </div>
+        <div class="card-body no-gutters">
+            @using (Html.BeginForm("AddItem", "Add", FormMethod.Post))
+            {
+                <div class="row no-gutters">
+                    <div class="form-group col-md-12">
+                        <input name="Name" type="text" class="form-control" placeholder="Item Name" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input name="Location" type="text" class="form-control" placeholder="Location" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input name="Quantity" type="number" class="form-control" placeholder="Quantity" />
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                </div>
+            }
+            <br />
+            @using (Html.BeginForm("ReturnToMenu", "Add", FormMethod.Post))
+            {
+                <button type="submit" class="btn btn-block btn-primary">Return to Menu</button>
+            }
+        </div>
+    </div>
+</div>
